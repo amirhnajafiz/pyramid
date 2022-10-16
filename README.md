@@ -1,19 +1,28 @@
 <p align="center">
-<img src="assets/logo.webp" />
+<img src="assets/logo.webp" width="700" />
 </p>
 
 <p align="center">
 <img src="https://img.shields.io/badge/Golang-1.19-66ADD8?style=for-the-badge&logo=go" alt="go version" />
+<<<<<<< HEAD
 <img src="https://img.shields.io/badge/Version-0.1.2-purple?style=for-the-badge&logo=github" alt="version" /><br />
+=======
+<img src="https://img.shields.io/badge/Version-0.1.1-DD1199?style=for-the-badge&logo=github" alt="version" />
+<img src="https://img.shields.io/badge/Load_Test-1M-442266?style=for-the-badge&logo=k6" alt="version" />
+<br />
+>>>>>>> a1d7592f37c1a356f4b4c5cd74e4b269c0fb1573
 </p>
 
 <h1 align="center">
 Pyramid
 </h1>
 
-Fast generic type **min-heap** in Golang.
+Fast generic type **Heap** in Golang. Create your heap with any type of data. Set your
+compression function to sort your data with any field that you want.
 
 ## How to use?
+
+Get **pyramid** package.
 
 ```shell
 go get github.com/amirhnajafiz/pyramid
