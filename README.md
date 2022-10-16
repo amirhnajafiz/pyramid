@@ -5,7 +5,7 @@
 <p align="center">
 <img src="https://img.shields.io/badge/Golang-1.19-66ADD8?style=for-the-badge&logo=go" alt="go version" />
 <img src="https://img.shields.io/badge/Version-0.1.1-DD1199?style=for-the-badge&logo=github" alt="version" />
-<img src="https://img.shields.io/badge/Load_Test-1M-000044?style=for-the-badge&logo=load" alt="version" />
+<img src="https://img.shields.io/badge/Load_Test-1M-442266?style=for-the-badge&logo=k6" alt="version" />
 <br />
 </p>
 
