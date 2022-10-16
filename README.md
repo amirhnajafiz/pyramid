@@ -13,8 +13,9 @@
 Pyramid
 </h1>
 
-Fast generic type **Heap** in Golang. Create your heap with any type of data. Set your
-compression function to sort your data with any field that you want.
+Fast generic **Heap** in Golang. Create your heap with any type of data. Set your
+compression function to sort your data with any field that you want. Push, Pop and Update your
+data in heap without any problems.
 
 ## How to use?
 
