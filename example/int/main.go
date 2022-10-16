@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/amirhnajafiz/pyramid"
 )
 
 func main() {
 	h := pyramid.NewHeap[int](func(a any, b any) bool {
-		return a.(int) < b.(int)
+		return a.(int) > b.(int)
 	})
 
 	h.Push(2)
