@@ -20,8 +20,10 @@ func (h *Heap) Length() int {
 	return h.queue.Len()
 }
 
-func NewHeap() Heap {
+func NewHeap(compareFunction compareFunction) Heap {
 	var pq Heap
+
+	pq.queue.compareFunction = compareFunction
 
 	heap.Init(&pq.queue)
 
