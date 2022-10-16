@@ -4,24 +4,24 @@ import (
 	"container/heap"
 )
 
-type Heap struct {
-	queue Queue
+type Heap[T any] struct {
+	queue Queue[T]
 }
 
-func (h *Heap) Push(value any) {
+func (h *Heap[T]) Push(value any) {
 	heap.Push(&h.queue, value)
 }
 
-func (h *Heap) Pop() any {
+func (h *Heap[T]) Pop() any {
 	return heap.Pop(&h.queue)
 }
 
-func (h *Heap) Length() int {
+func (h *Heap[T]) Length() int {
 	return h.queue.Len()
 }
 
-func NewHeap(compareFunction compareFunction) Heap {
-	var pq Heap
+func NewHeap[T any](compareFunction compareFunction) Heap[T] {
+	var pq Heap[T]
 
 	pq.queue.compareFunction = compareFunction
 
