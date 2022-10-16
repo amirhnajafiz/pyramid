@@ -1,3 +1,12 @@
+<p align="center">
+<img src="assets/logo.webp" />
+</p>
+
+<p align="center">
+<img src="https://img.shields.io/badge/Golang-1.19-66ADD8?style=for-the-badge&logo=go" alt="go version" />
+<img src="https://img.shields.io/badge/Version-0.1.1-purple?style=for-the-badge&logo=github" alt="version" /><br />
+</p>
+
 <h1 align="center">
 Pyramid
 </h1>
