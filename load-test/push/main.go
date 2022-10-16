@@ -24,9 +24,10 @@ func main() {
 	fmt.Printf("start: %s\n", time.Now().Format(time.StampMilli))
 
 	for i := 0; i < *flNumberOfPush; i++ {
-		h.Push(rand.Int() % 100)
+		h.Push(1 + rand.Int()%100000)
 	}
 
 	fmt.Printf("done: %s\n", time.Now().Format(time.StampMilli))
 	fmt.Printf("final size: %d\n", h.Length())
+	fmt.Printf("min: %d\n", h.Pop())
 }
