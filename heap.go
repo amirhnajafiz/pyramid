@@ -1,4 +1,4 @@
-package main
+package pyramid
 
 import "container/heap"
 
