@@ -4,26 +4,26 @@ import "container/heap"
 
 // Queue
 // is a list of items.
-type Queue struct {
-	list            []*item
+type Queue[T any] struct {
+	list            []*item[T]
 	compareFunction compareFunction
 }
 
 // Len
 // returns the Queue size.
-func (pq Queue) Len() int {
+func (pq Queue[T]) Len() int {
 	return len(pq.list)
 }
 
 // Less
 // comparator function.
-func (pq Queue) Less(i, j int) bool {
+func (pq Queue[T]) Less(i, j int) bool {
 	return pq.compareFunction(pq.list[i], pq.list[j])
 }
 
 // Swap
 // function for Queue.
-func (pq Queue) Swap(i, j int) {
+func (pq Queue[T]) Swap(i, j int) {
 	pq.list[i], pq.list[j] = pq.list[j], pq.list[i]
 	pq.list[i].index = i
 	pq.list[j].index = j
@@ -31,10 +31,10 @@ func (pq Queue) Swap(i, j int) {
 
 // Push
 // new items to Queue list.
-func (pq *Queue) Push(x any) {
+func (pq *Queue[T]) Push(x any) {
 	n := len(pq.list)
 
-	i := x.(*item)
+	i := x.(*item[T])
 	i.index = n
 
 	pq.list = append(pq.list, i)
@@ -42,7 +42,7 @@ func (pq *Queue) Push(x any) {
 
 // Pop
 // extract one item from Queue list.
-func (pq *Queue) Pop() any {
+func (pq *Queue[T]) Pop() any {
 	old := pq.list
 	n := len(old)
 	i := old[n-1]
@@ -56,7 +56,7 @@ func (pq *Queue) Pop() any {
 
 // update
 // modifies the priority and value of an Item in the queue.
-func (pq *Queue) update(i *item, value int) {
+func (pq *Queue[T]) update(i *item[T], value T) {
 	i.value = value
 
 	heap.Fix(pq, i.index)

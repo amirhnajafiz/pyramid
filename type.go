@@ -10,4 +10,4 @@ type item[T any] struct {
 
 // CompareFunction
 // is used to compare items in priority queue.
-type compareFunction[T any] func(T, T) bool
+type compareFunction func(any, any) bool
