@@ -1,29 +1,38 @@
 package test
 
 import (
-	"github.com/amirhnajafiz/pyramid"
 	"testing"
+
+	"github.com/amirhnajafiz/pyramid"
 )
 
+// TestHeap
+// testing heap data structure with int64 type.
 func TestHeap(t *testing.T) {
+	// creating a new heap
 	h := pyramid.NewHeap[int64](func(a any, b any) bool {
 		return a.(int64) < b.(int64)
 	})
 
+	// push some data into heap
 	h.Push(int64(100))
 	h.Push(int64(1))
 	h.Push(int64(10))
 
+	// check push result
 	if h.Length() != 3 {
 		t.Error("push failed")
 	}
 
+	// check pop operation
 	if h.Pop().(int64) != 1 {
 		t.Error("heap structure failed")
 	}
 }
 
-func TestInvalidType(t *testing.T) {
+// TestValidType
+// testing heap of a valid custom type.
+func TestValidType(t *testing.T) {
 	type item struct {
 		value int
 	}
