@@ -29,6 +29,27 @@ func (h *Heap[T]) Length() int {
 	return h.queue.Len()
 }
 
+// Update
+// the queue list.
+func (h *Heap[T]) Update(object any, ef equalFunction) {
+	index := h.find(object, ef)
+	if index == -1 {
+		return
+	}
+
+	h.queue.update(h.queue.list[index], object.(T))
+}
+
+func (h *Heap[T]) find(object any, equalFunction equalFunction) int {
+	for index, obj := range h.queue.list {
+		if equalFunction(obj.value, object.(T)) {
+			return index
+		}
+	}
+
+	return -1
+}
+
 // NewHeap
 // creates a new heap of any type.
 func NewHeap[T any](compareFunction compareFunction) Heap[T] {
