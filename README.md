@@ -4,7 +4,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/Golang-1.19-66ADD8?style=for-the-badge&logo=go" alt="go version" />
-<img src="https://img.shields.io/badge/Version-0.1.1-purple?style=for-the-badge&logo=github" alt="version" /><br />
+<img src="https://img.shields.io/badge/Version-0.1.2-purple?style=for-the-badge&logo=github" alt="version" /><br />
 </p>
 
 <h1 align="center">
@@ -70,4 +70,39 @@ func main() {
 		fmt.Printf("%s\n", h.Pop().(Data).Data)
 	}
 }
+```
+
+### Updating a reference
+
+You can update any item in the list, also you can define a 
+equal function to check the equality of your objects.
+
+```go
+special := 675
+
+h.Push(special)
+
+for i := 2; i < 100; i++ {
+    h.Push(i)
+}
+
+h.Update(special, 0, func(a any, b any) bool {
+    return a.(int) == b.(int)
+})
+```
+
+## Load test
+If we have 10000 items, and we want to update them 1 Million times, it would
+only take 12 seconds:
+
+```shell
+go run load-test/update/main.go -push 10000 -update 1000000
+```
+
+```shell
+testing: 10000 numbers
+start: Oct 16 14:42:34.752
+done: Oct 16 14:42:52.064
+final size: 10000
+min: 2
 ```
