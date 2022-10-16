@@ -18,7 +18,7 @@ func (pq Queue[T]) Len() int {
 // Less
 // comparator function.
 func (pq Queue[T]) Less(i, j int) bool {
-	return pq.compareFunction(pq.list[i], pq.list[j])
+	return pq.compareFunction(pq.list[i].value, pq.list[j].value)
 }
 
 // Swap
@@ -34,8 +34,7 @@ func (pq Queue[T]) Swap(i, j int) {
 func (pq *Queue[T]) Push(x any) {
 	n := len(pq.list)
 
-	i := x.(*item[T])
-	i.index = n
+	i := &item[T]{value: x.(T), index: n}
 
 	pq.list = append(pq.list, i)
 }
@@ -51,7 +50,7 @@ func (pq *Queue[T]) Pop() any {
 	i.index = -1   // for safety
 	pq.list = old[0 : n-1]
 
-	return i
+	return i.value
 }
 
 // update
