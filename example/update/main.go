@@ -29,7 +29,7 @@ func main() {
 
 	special.Priority = 0
 
-	h.Update(special, func(a any, b any) bool {
+	h.Update(special, special, func(a any, b any) bool {
 		return a.(*Data).Data == b.(*Data).Data
 	})
 

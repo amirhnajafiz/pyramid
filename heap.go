@@ -31,13 +31,13 @@ func (h *Heap[T]) Length() int {
 
 // Update
 // the queue list.
-func (h *Heap[T]) Update(object any, ef equalFunction) {
-	index := h.find(object, ef)
+func (h *Heap[T]) Update(old any, new any, ef equalFunction) {
+	index := h.find(old, ef)
 	if index == -1 {
 		return
 	}
 
-	h.queue.update(h.queue.list[index], object.(T))
+	h.queue.update(h.queue.list[index], new.(T))
 }
 
 func (h *Heap[T]) find(object any, equalFunction equalFunction) int {
