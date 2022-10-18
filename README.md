@@ -4,7 +4,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/Golang-1.19-66ADD8?style=for-the-badge&logo=go" alt="go version" />
-<img src="https://img.shields.io/badge/Version-0.1.2-DD1199?style=for-the-badge&logo=github" alt="version" />
+<img src="https://img.shields.io/badge/Version-0.1.3-DD1199?style=for-the-badge&logo=github" alt="version" />
 <img src="https://img.shields.io/badge/Load_Test-1M-442266?style=for-the-badge&logo=k6" alt="version" />
 <br />
 </p>
@@ -39,8 +39,8 @@ import (
 )
 
 func main() {
-	h := pyramid.NewHeap[int](func(a any, b any) bool {
-		return a.(int) > b.(int)
+	h := pyramid.NewHeap[int](func(a int, b int) bool {
+		return a > b
 	})
 
 	h.Push(2)
@@ -64,8 +64,8 @@ type Data struct {
 }
 
 func main() {
-	h := pyramid.NewHeap[Data](func(a any, b any) bool {
-		return a.(Data).Priority < b.(Data).Priority
+	h := pyramid.NewHeap[Data](func(a Data, b Data) bool {
+		return a.Priority < b.Priority
 	})
 
 	for i := 0; i < 10; i++ {
@@ -92,8 +92,8 @@ for i := 2; i < 100; i++ {
     h.Push(i)
 }
 
-h.Update(special, 0, func(a any, b any) bool {
-    return a.(int) == b.(int)
+h.Update(special, 0, func(a int, b int) bool {
+    return a == b
 })
 ```
 
