@@ -48,8 +48,8 @@ func main() {
 			value: rand.Int() % 100000,
 		}
 
-		h.Update(items[index], newItem, func(a any, b any) bool {
-			return a.(*Data).id == b.(*Data).id
+		h.Update(items[index], newItem, func(a *Data, b *Data) bool {
+			return a.id == b.id
 		})
 	}
 

@@ -29,8 +29,8 @@ func main() {
 
 	special.Priority = 0
 
-	h.Update(special, special, func(a any, b any) bool {
-		return a.(*Data).Data == b.(*Data).Data
+	h.Update(special, special, func(a *Data, b *Data) bool {
+		return a.Data == b.Data
 	})
 
 	for h.Length() > 0 {
