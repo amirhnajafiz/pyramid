@@ -1,5 +1,5 @@
 <p align="center">
-<img src="assets/logo.webp" width="700" />
+<img src="assets/logo.webp" width="700"  alt="logo"/>
 </p>
 
 <p align="center">
@@ -13,9 +13,13 @@
 Pyramid
 </h1>
 
-Fast generic **Heap** in Golang. Create your heap with any type of data. Set your
+Fast generic **Heap** in Golang. Create your Heap data structure with any data type. Set your
 compression function to sort your data with any field that you want. Push, Pop and Update your
-data in heap without any problems.
+data in heap without any problems. Write your equality function to filter
+the elements that you want to update.
+
+**Pyramid** is built with **Golang** internal libraries and does not include any external
+libraries.
 
 ## How to use?
 
@@ -25,9 +29,11 @@ Get **pyramid** package.
 go get github.com/amirhnajafiz/pyramid
 ```
 
+Now you can use pyramid to build any type of **Heap**.
+
 ## Example
 
-Creating a max-heap of integers type.
+Creating a _max-heap_ of type Integer.
 
 ```go
 package main
@@ -39,35 +45,42 @@ import (
 )
 
 func main() {
+	// initializing a heap with comparator function
 	h := pyramid.NewHeap[int](func(a int, b int) bool {
 		return a > b
 	})
 
+	// Using push method
 	h.Push(2)
 	h.Push(12)
 	h.Push(4)
 	h.Push(90)
 	h.Push(20)
 
+	// Using length method
 	for h.Length() > 0 {
+		// Using pop method
 		fmt.Printf("%d ", h.Pop().(int))
 	}
 }
 ```
 
-Creating a min-heap of custome data type.
+Creating a _min-heap_ of type custom _Data_.
 
 ```go
+// Creating a custom Data struct type.
 type Data struct {
 	Priority int
 	Data     string
 }
 
 func main() {
+	// Creating a heap of Data type.
 	h := pyramid.NewHeap[Data](func(a Data, b Data) bool {
 		return a.Priority < b.Priority
 	})
 
+	// Push data into heap.
 	for i := 0; i < 10; i++ {
 		h.Push(Data{Priority: i, Data: fmt.Sprintf("data: %d", i+1)})
 	}
