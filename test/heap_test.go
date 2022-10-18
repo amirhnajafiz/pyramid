@@ -10,8 +10,8 @@ import (
 // testing heap data structure with int64 type.
 func TestHeap(t *testing.T) {
 	// creating a new heap
-	h := pyramid.NewHeap[int64](func(a any, b any) bool {
-		return a.(int64) < b.(int64)
+	h := pyramid.NewHeap[int64](func(a int64, b int64) bool {
+		return a < b
 	})
 
 	// push some data into heap
@@ -37,8 +37,8 @@ func TestValidType(t *testing.T) {
 		value int
 	}
 
-	h := pyramid.NewHeap[item](func(a any, b any) bool {
-		return a.(item).value < b.(item).value
+	h := pyramid.NewHeap[item](func(a item, b item) bool {
+		return a.value < b.value
 	})
 
 	h.Push(item{

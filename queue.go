@@ -6,7 +6,7 @@ import "container/heap"
 // is a list of items.
 type Queue[T any] struct {
 	list            []*item[T]
-	compareFunction compareFunction
+	compareFunction compareFunction[T]
 }
 
 // Len

@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	h := pyramid.NewHeap[int](func(a any, b any) bool {
-		return a.(int) > b.(int)
+	h := pyramid.NewHeap[int](func(a int, b int) bool {
+		return a > b
 	})
 
 	h.Push(2)

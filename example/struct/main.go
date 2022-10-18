@@ -12,8 +12,8 @@ type Data struct {
 }
 
 func main() {
-	h := pyramid.NewHeap[Data](func(a any, b any) bool {
-		return a.(Data).Priority < b.(Data).Priority
+	h := pyramid.NewHeap[Data](func(a Data, b Data) bool {
+		return a.Priority < b.Priority
 	})
 
 	for i := 0; i < 10; i++ {

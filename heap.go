@@ -52,7 +52,7 @@ func (h *Heap[T]) find(object any, equalFunction equalFunction) int {
 
 // NewHeap
 // creates a new heap of any type.
-func NewHeap[T any](compareFunction compareFunction) Heap[T] {
+func NewHeap[T any](compareFunction compareFunction[T]) Heap[T] {
 	var pq Heap[T]
 
 	// setting the compare function
