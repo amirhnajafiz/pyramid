@@ -17,8 +17,8 @@ func main() {
 
 	flag.Parse()
 
-	h := pyramid.NewHeap[int](func(a any, b any) bool {
-		return a.(int) < b.(int)
+	h := pyramid.NewHeap[int](func(a int, b int) bool {
+		return a < b
 	})
 
 	fmt.Printf("testing: %d numbers\n", *flNumberOfPop+*flNumberOfPush)

@@ -31,7 +31,7 @@ func (h *Heap[T]) Length() int {
 
 // Update
 // the queue list.
-func (h *Heap[T]) Update(old any, new any, ef equalFunction) {
+func (h *Heap[T]) Update(old any, new any, ef equalFunction[T]) {
 	index := h.find(old, ef)
 	if index == -1 {
 		return
@@ -40,7 +40,7 @@ func (h *Heap[T]) Update(old any, new any, ef equalFunction) {
 	h.queue.update(h.queue.list[index], new.(T))
 }
 
-func (h *Heap[T]) find(object any, equalFunction equalFunction) int {
+func (h *Heap[T]) find(object any, equalFunction equalFunction[T]) int {
 	for index, obj := range h.queue.list {
 		if equalFunction(obj.value, object.(T)) {
 			return index
@@ -52,7 +52,7 @@ func (h *Heap[T]) find(object any, equalFunction equalFunction) int {
 
 // NewHeap
 // creates a new heap of any type.
-func NewHeap[T any](compareFunction compareFunction) Heap[T] {
+func NewHeap[T any](compareFunction compareFunction[T]) Heap[T] {
 	var pq Heap[T]
 
 	// setting the compare function
